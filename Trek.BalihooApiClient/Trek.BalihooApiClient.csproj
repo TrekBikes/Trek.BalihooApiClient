@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="ApiResponseException.cs" />
     <Compile Include="BalihooApiClient.cs" />
-    <Compile Include="CampaignResponse.cs" />
+    <Compile Include="Campaign.cs" />
     <Compile Include="CampaignTacticMetric.cs" />
     <Compile Include="ClientApiKeyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
