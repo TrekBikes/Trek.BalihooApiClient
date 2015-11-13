@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Trek.BalihooApiClient;
 
-namespace ConsoleApplication1
+namespace Trek.BalihooApiClient.Sample
 {
     class Program
     {
