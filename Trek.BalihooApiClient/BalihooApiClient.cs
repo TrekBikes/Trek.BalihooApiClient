@@ -106,6 +106,22 @@ namespace Trek.BalihooApiClient
 
         #endregion
 
+        #region Reports
+
+        public List<EmailSentEvent> GetEmailReportData(IList<int> locationIds)
+        {
+            return GetEmailReportData(locationIds, null, null);
+        }
+        public List<EmailSentEvent> GetEmailReportData(IList<int> locationIds, DateTime? from, DateTime? to)
+        {
+            Ensure.That(locationIds, nameof(locationIds)).IsNotNull();
+            Ensure.That(locationIds.Count, nameof(locationIds)).IsNot(0);
+
+            return MakeListRequest<EmailSentEvent>(CreateAuthedRequest("report/EmailSentEvent/export", locationIds, from, to));
+        }
+
+        #endregion
+
         #region Private Helpers
 
         private static void AddCommonParameters(IRestRequest request, IEnumerable<int> locationIds, DateTime? from, DateTime? to)
@@ -182,6 +198,17 @@ namespace Trek.BalihooApiClient
 
                 throw new ApiResponseException(response);
             }
+        }
+
+        private List<T> MakeListRequest<T>(IRestRequest request)
+        {
+            var response = _restClient.Get<List<T>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Data;
+            }
+
+            throw new ApiResponseException(response);
         }
 
         #endregion
