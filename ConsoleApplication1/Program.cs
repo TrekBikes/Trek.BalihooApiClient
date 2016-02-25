@@ -29,6 +29,9 @@ namespace Trek.BalihooApiClient.Sample
             {
                 var tacticMetrics = client.GetTacticMetrics(list, tacticId);
             }
+
+            // Get Location Email Report
+            var reportResults = client.GetEmailReportData(list);
             
             Console.ReadLine();
         }
