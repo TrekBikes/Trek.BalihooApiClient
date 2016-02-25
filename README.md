@@ -13,4 +13,7 @@ var client = new BalihooApiClient("{your Client ID", "your Client API Key");
 // Get Campaings (w/ Tactics)
 var loctaionIds = new List<int> { 85104, 1103020 };
 var result = client.GetCampaigns(locationIds);
+
+// Get Location Email Report
+var reportData = client.GetEmailReportData(locationIds);
 ```
